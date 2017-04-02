@@ -189,8 +189,8 @@ a
       observer.observe(target, config);
     \`;
 
-    window.webviews = document.querySelectorAll(".TeamView webview");
     setTimeout(function() {
+      var webviews = document.querySelectorAll(".TeamView webview");
       for(var i = 0; i < webviews.length; i++) {
         webviews[i].executeJavaScript(mathjax_inject_script);
       }
