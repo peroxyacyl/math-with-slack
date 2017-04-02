@@ -44,6 +44,14 @@ IF NOT "%SLACK_INDEX%" == "" IF NOT EXIST "%SLACK_INDEX%" (
 		SET SLACK_INDEX=%SLACK_INDEX%app-2.5.2\resources\app.asar.unpacked\src\static\index.js
 	) ELSE IF EXIST "%SLACK_INDEX%\app-2.5.2\resources\app.asar.unpacked\src\static\index.js" (
 		SET SLACK_INDEX=%SLACK_INDEX%\app-2.5.2\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%SLACK_INDEX%AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%SLACK_INDEX%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%SLACK_INDEX%app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%app-2.5.1\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%SLACK_INDEX%\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
 	)
 )
 
@@ -53,6 +61,8 @@ IF NOT "%SLACK_INDEX%" == "" IF NOT EXIST "%SLACK_INDEX%" (
 IF "%SLACK_INDEX%" == "" (
 	IF EXIST "%UserProfile%\AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js" (
 		SET SLACK_INDEX=%UserProfile%\AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%UserProfile%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%UserProfile%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
 	)
 )
 
