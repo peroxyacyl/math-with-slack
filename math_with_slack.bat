@@ -36,14 +36,14 @@ GOTO parse
 :: If the user-provided "index.js" is not found, try to find it
 
 IF NOT "%SLACK_INDEX%" == "" IF NOT EXIST "%SLACK_INDEX%" (
-	IF EXIST "%SLACK_INDEX%AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
-		SET SLACK_INDEX=%SLACK_INDEX%AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
-	) ELSE IF EXIST "%SLACK_INDEX%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
-		SET SLACK_INDEX=%SLACK_INDEX%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
-	) ELSE IF EXIST "%SLACK_INDEX%app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
-		SET SLACK_INDEX=%SLACK_INDEX%app-2.5.1\resources\app.asar.unpacked\src\static\index.js
-	) ELSE IF EXIST "%SLACK_INDEX%\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
-		SET SLACK_INDEX=%SLACK_INDEX%\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
+	IF EXIST "%SLACK_INDEX%AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%SLACK_INDEX%\AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%\AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%SLACK_INDEX%app-2.5.2\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%app-2.5.2\resources\app.asar.unpacked\src\static\index.js
+	) ELSE IF EXIST "%SLACK_INDEX%\app-2.5.2\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%SLACK_INDEX%\app-2.5.2\resources\app.asar.unpacked\src\static\index.js
 	)
 )
 
@@ -51,8 +51,8 @@ IF NOT "%SLACK_INDEX%" == "" IF NOT EXIST "%SLACK_INDEX%" (
 :: Try to find slack if not provided by user
 
 IF "%SLACK_INDEX%" == "" (
-	IF EXIST "%UserProfile%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js" (
-		SET SLACK_INDEX=%UserProfile%\AppData\Local\slack\app-2.5.1\resources\app.asar.unpacked\src\static\index.js
+	IF EXIST "%UserProfile%\AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js" (
+		SET SLACK_INDEX=%UserProfile%\AppData\Local\slack\app-2.5.2\resources\app.asar.unpacked\src\static\index.js
 	)
 )
 
@@ -155,8 +155,8 @@ FOR /F "delims=" %%L IN (%SLACK_INDEX%.mwsbak) DO (
 			ECHO.      observer.observe(target, config^);
 			ECHO.    `;
 			ECHO.
-			ECHO.    window.webviews = document.querySelectorAll(".TeamView webview"^);
 			ECHO.    setTimeout(function(^) {
+			ECHO.      var webviews = document.querySelectorAll(".TeamView webview"^);
 			ECHO.      for(var i = 0; i ^< webviews.length; i++^) {
 			ECHO.        webviews[i].executeJavaScript(mathjax_inject_script^);
 			ECHO.      }
